@@ -13,7 +13,7 @@ services:
     depends_on:
       - mymongodb
     build: nodejs/
-    image: mynodeapp:2.0
+    image: mynodeapp:1.0
     restart: always
     networks:
       - mern
@@ -30,7 +30,7 @@ services:
     depends_on:
       - mymongodb
     build: frontend/Dockerfile.prod
-    image: myreactapp:2.0
+    image: myreactapp:1.0
     restart: always
     networks:
       - mern
@@ -38,7 +38,8 @@ services:
       - /usr/app/node_modules
       - ./frontend:/usr/app
     ports:
-      - 8181:80
+      # - 8181:80
+      - 80:80
 
 networks:
   mern: 
